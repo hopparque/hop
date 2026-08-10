@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Eclipse - Hop!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
 
+  <main class="container">
+    <h1>Eclipse | Hop!</h1>
+    <h2>Já estamos na pista!</h2>
+
+    <p>O Eclipse é a discoteca do Hop! e está encarregue da música do parque e do festival[cite: 19, 25]. Não vais ficar desapontado[cite: 26].</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Abertura - 17 de agosto</h3>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/abertura')">Ver Bilhetes</button>
+      </div>
+      <div class="card">
+        <h3>Sunset - 19 de agosto</h3>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/sunset-by-eclipse-at-hop')">Ver Bilhetes</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="ticket-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="close3cketModal()">&times;</span>
+      <iframe id="ticket-iframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

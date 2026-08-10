@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Hop! Fest - O Festival de Verão</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/festival/festival.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
 
+  <main class="container">
+    <h1>Hop! Fest</h1>
+    <h3>O festival de verão do Hop!</h3>
+    <p>De 1 a 3 de setembro podes contar com música, cinema, bar, e muita diversão no espaço Hop! das 10h às 00h[cite: 16, 17].</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Detalhes & Informações</h3>
+        <ul>
+          <li><strong>Música:</strong> Eclipse, a discoteca do Hop! [cite: 19]</li>
+          <li><strong>Cinema:</strong> Cine Hop! [cite: 20]</li>
+          <li><strong>Bar:</strong> Hop! (comida e bebida disponíveis no local) [cite: 24, 25]</li>
+          <li><strong>Estacionamento:</strong> Bem localizado no espaço Hop! [cite: 24]</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Bilhetes</h3>
+        <p><strong>Diário:</strong> Acesso a 1 dia do festival[cite: 22].</p>
+        <p><strong>Passe Geral:</strong> Acesso aos 3 dias com opção de campismo[cite: 23].</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/hop-fest')">Comprar Bilhete</button>
+      </div>
+
+      <div class="card">
+        <h3>Campismo</h3>
+        <p>Vens acampar? Não precisas de trazer nada, nós tratamos de tudo para que recarregues as energias para o dia seguinte da melhor forma[cite: 27].</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="ticket-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="close3cketModal()">&times;</span>
+      <iframe id="ticket-iframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

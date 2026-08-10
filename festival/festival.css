@@ -1,1 +1,21 @@
+/* festival/festival.css */
+:root {
+  --primary-color: #7209b7;
+  --secondary-color: #3a0ca3;
+  --bg-color: #0f0c20;
+  --text-color: #f7f9fc;
+  --card-bg: #1a1638;
+}
 
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  border: 1px solid #4cc9f0;
+}
+
+.btn {
+  background-color: #f72585;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Bilheteira - Hop!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <h1>Bilheteira Hop!</h1>
+    <p>Encontra todos os teus eventos aqui: [cite: 29, 30]</p>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <h3>Abertura Toita's Lounge</h3>
+        <p>17 Agosto - 17h00 [cite: 30]</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/abertura')">Comprar Bilhete [cite: 8, 30]</button>
+      </div>
+
+      <div class="event-card">
+        <h3>Sunset by Eclipse</h3>
+        <p>19 Agosto - 17h00 [cite: 30]</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/sunset-by-eclipse-at-hop')">Comprar Bilhete [cite: 9, 30]</button>
+      </div>
+
+      <div class="event-card">
+        <h3>Hop! Fest</h3>
+        <p>1 a 3 Setembro - 10h00 às 00h [cite: 30]</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/hop-fest')">Comprar Bilhete [cite: 5, 30]</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="ticket-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="close3cketModal()">&times;</span>
+      <iframe id="ticket-iframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

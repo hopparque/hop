@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Toita's Lounge - Hop!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
 
+  <main class="container">
+    <h1>Toita's Lounge | Hop!</h1>
+    <p>Já temos data de inauguração!</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Abertura - 17 de agosto</h3>
+        <p>A Abertura do Toita's Lounge vem aí e tu não a vais querer perder[cite: 6]. Vais poder contar com atrações e claro, com a música do Eclipse para acompanhar a festa[cite: 7].</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/abertura')">Comprar Bilhete</button>
+      </div>
+
+      <div class="card">
+        <h3>Sunset - 19 de agosto</h3>
+        <p>Um sunset no Hop! é o que te falta para melhorar o teu verão[cite: 8].</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/sunset-by-eclipse-at-hop')">Comprar Bilhete</button>
+      </div>
+
+      <div class="card">
+        <h3>Hop! Fest - 1 a 3 de setembro</h3>
+        <p>O festival de verão do Hop! [cite: 4, 9]</p>
+        <button class="btn" onclick="open3cketModal('https://3cket.com/pt/event/hop-fest')">Comprar Bilhete</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="ticket-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="close3cketModal()">&times;</span>
+      <iframe id="ticket-iframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

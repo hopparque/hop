@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Criar Conta - Hop!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
 
+  <main class="container">
+    <h2>Criar Conta no Hop!</h2>
+    <form id="register-form">
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Palavra-passe (6-18 caracteres, 1 minúscula, 1 número):</label>
+        <input type="password" id="password" minlength="6" maxlength="18" pattern="(?=.*[a-z])(?=.*\d).{6,18}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Número de Telemóvel (+351):</label>
+        <input type="tel" id="phone" value="+351" pattern="^(\+351)?[9][1236]\d{7}$" placeholder="+351910000000" required>
+      </div>
+
+      <div class="form-group">
+        <label>Data de Nascimento:</label>
+        <input type="date" id="dob" required>
+      </div>
+
+      <button type="submit" class="btn">Registar</button>
+    </form>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/main.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+</body>
+</html>

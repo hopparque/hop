@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Músicas | Natal Hop!</title>
+<meta name="description" content="As músicas do Natal Hop!, de 23 a 26 de dezembro.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav aria-label="Principal">
+<a href="./">Início</a>
+<a href="eventos">Eventos</a>
+<a href="ementa">Ementa</a>
+<a href="musicas" aria-current="page">Músicas</a>
+<a href="sobre">Sobre</a>
+<a href="bilheteira" class="cta">Bilheteira</a>
+</nav></div></header>
+<main><section class="sec"><div class="wrap">
+<h2>Músicas de Natal</h2>
+<p>A banda sonora dos quatro dias no Hop!</p>
+<div id="sp"></div>
+<div id="songs"></div>
+</div></section></main>
+<footer class="site-foot"><div class="wrap">
+<img src="assets/wordmark.png" alt="Hop!">
+<p>Natal Hop! de 23 a 26 de dezembro</p>
+<p>Vem passar o Natal em família.</p>
+</div></footer>
+<script src="site.js"></script>
+<script>
+fetch('data/musicas.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
+  const m=String(d.spotify||'').match(/open\.spotify\.com\/(playlist|album)\/([A-Za-z0-9]+)/);
+  if(m)document.getElementById('sp').innerHTML='<iframe title="Playlist do Natal Hop! no Spotify" src="https://open.spotify.com/embed/'+m[1]+'/'+m[2]+'" width="100%" height="352" style="border:0;border-radius:16px;margin-bottom:1.5rem" allow="encrypted-media" loading="lazy"></iframe>';
+  document.getElementById('songs').innerHTML=(d.songs||[]).map(s=>'<div class="song"><div><b>'+esc(s.title)+'</b><div class="meta">'+esc(s.artist)+'</div></div><a href="'+esc(s.link||'https://www.youtube.com/results?search_query='+encodeURIComponent(s.title+' '+s.artist))+'" target="_blank" rel="noopener">Ouvir</a></div>').join('')||'<div class="empty">As músicas vão ser anunciadas em breve.</div>';
+}).catch(()=>{document.getElementById('songs').innerHTML='<div class="empty">Não foi possível carregar as músicas. Tenta novamente mais tarde.</div>'});
+loadEvents().then(r=>draftBar(r.draft));
+</script>
+</body></html>

@@ -1,0 +1,11 @@
+{
+  "spotify": "",
+  "songs": [
+    {"title":"All I Want for Christmas Is You","artist":"Mariah Carey"},
+    {"title":"Last Christmas","artist":"Wham!"},
+    {"title":"Jingle Bell Rock","artist":"Bobby Helms"},
+    {"title":"Feliz Navidad","artist":"José Feliciano"},
+    {"title":"Santa Claus Is Comin' to Town","artist":"Michael Bublé"},
+    {"title":"Noite Feliz","artist":"Tradicional"}
+  ]
+}

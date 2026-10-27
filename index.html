@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natal Hop! | 23 a 26 de dezembro</title>
+<meta name="description" content="Natal Hop! de 23 a 26 de dezembro. Vem passar o Natal em família com o Hop!">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav aria-label="Principal">
+<a href="./" aria-current="page">Início</a>
+<a href="eventos">Eventos</a>
+<a href="ementa">Ementa</a>
+<a href="musicas">Músicas</a>
+<a href="sobre">Sobre</a>
+<a href="bilheteira" class="cta">Bilheteira</a>
+</nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<img class="mascot" src="assets/logo.png" alt="">
+<h1>Natal Hop!</h1>
+<p class="dates">23 a 26 de dezembro</p>
+<p class="lead">Vem passar o Natal em família com o Hop!</p>
+<div id="count" class="count"></div>
+<a class="btn" href="bilheteira">Comprar bilhetes</a> <a class="btn light" href="eventos">Ver os eventos</a>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<h2>Quatro dias de Natal</h2>
+<div class="days" id="days"></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+<h2>Os primeiros eventos</h2>
+<div id="next"></div>
+<a class="btn alt" href="eventos">Ver o programa completo</a>
+</div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+<img src="assets/wordmark.png" alt="Hop!">
+<p>Natal Hop! de 23 a 26 de dezembro</p>
+<p>Vem passar o Natal em família.</p>
+</div></footer>
+<script src="site.js"></script>
+<script>
+countdown(document.getElementById('count'));
+document.getElementById('days').innerHTML=DAYS.map(d=>'<a class="day" href="eventos#dia-'+d.slice(8)+'"><b>'+d.slice(8)+'</b><span>'+fmt(d,{weekday:'long'})+'</span><small>dezembro</small></a>').join('');
+loadEvents().then(r=>{
+  draftBar(r.draft);
+  const n=sortEv(r.events).slice(0,3);
+  document.getElementById('next').innerHTML=n.length?n.map(e=>'<p class="meta" style="margin:.8rem 0 .2rem"><b>'+fmt(e.date,{day:'numeric',month:'long'})+'</b></p>'+evHTML(e)).join(''):'<div class="empty">O programa vai ser anunciado em breve.</div>';
+});
+</script>
+</body></html>

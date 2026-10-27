@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobre | Natal Hop!</title>
+<meta name="description" content="Natal Hop! de 23 a 26 de dezembro. Vem passar o Natal em família com o Hop!">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav aria-label="Principal">
+<a href="./">Início</a>
+<a href="eventos">Eventos</a>
+<a href="ementa">Ementa</a>
+<a href="musicas">Músicas</a>
+<a href="sobre" aria-current="page">Sobre</a>
+<a href="bilheteira" class="cta">Bilheteira</a>
+</nav></div></header>
+<main>
+<section class="sec"><div class="wrap split">
+<div>
+<h2>Um Natal para viver em família</h2>
+<p>De 23 a 26 de dezembro, o Hop! enche-se de Natal. São quatro dias para brincar, criar, ver um filme e estar juntos, do primeiro ao último dia.</p>
+<p>Todos os eventos estão no programa, organizados por dia.</p>
+<a class="btn" href="bilheteira">Comprar bilhetes</a> <a class="btn light" href="eventos">Ver os eventos</a>
+</div>
+<img src="assets/natal.png" alt="Cartaz do Natal Hop!, de 23 a 26 de dezembro, com uma árvore de Natal" width="300" height="300">
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+<video src="assets/natal_video.mp4" poster="assets/natal_card.png" autoplay muted loop playsinline controls style="width:100%;border-radius:18px;display:block" aria-label="Feliz Natal do Hop!"></video>
+</div></section>
+</main>
+<footer class="site-foot"><div class="wrap">
+<img src="assets/wordmark.png" alt="Hop!">
+<p>Natal Hop! de 23 a 26 de dezembro</p>
+<p>Vem passar o Natal em família.</p>
+</div></footer>
+<script src="site.js"></script>
+<script>loadEvents().then(r=>draftBar(r.draft))</script>
+</body></html>

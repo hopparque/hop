@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilheteira | Natal Hop!</title>
+<meta name="description" content="Bilhetes para o Natal Hop!, de 23 a 26 de dezembro, no Hop! Arouca.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav aria-label="Principal">
+<a href="./">Início</a>
+<a href="eventos">Eventos</a>
+<a href="ementa">Ementa</a>
+<a href="musicas">Músicas</a>
+<a href="sobre">Sobre</a>
+<a href="bilheteira" class="cta" aria-current="page">Bilheteira</a>
+</nav></div></header>
+<main><section class="sec"><div class="wrap">
+<div class="imgs">
+<img src="https://assets.3cket.com/event/event-description/153e4268a97846bca7b01ca1988b931f/6ca056be82ed459895c7b209cf00e900.webp" alt="Natal Hop!" onerror="this.remove()">
+<img src="https://assets.3cket.com/event/event-description/153e4268a97846bca7b01ca1988b931f/62b152aea7ba4759b44d5759f921cb80.webp" alt="" onerror="this.remove()">
+</div>
+<div class="tk">
+<div>
+<h2>Natal</h2>
+<p class="meta"><b>De quarta, 23 dez, a sábado, 26 dez</b></p>
+<p class="meta"><a href="https://www.google.com/maps/search/?api=1&amp;query=40.9315448%2C-8.2736034" target="_blank" rel="noopener">Hop! Arouca</a></p>
+<p>Vem passar o Natal em família com o Hop!</p>
+</div>
+<aside class="card tkbox">
+<h3>Bilhetes</h3>
+<div id="count" class="count" style="margin-bottom:1rem"></div>
+<p class="meta">A venda de bilhetes é feita na 3cket.</p>
+<a class="btn alt" href="https://3cket.com/pt/event/natal" target="_blank" rel="noopener">Comprar na 3cket</a>
+</aside>
+</div>
+</div></section></main>
+<footer class="site-foot"><div class="wrap">
+<img src="assets/wordmark.png" alt="Hop!">
+<p>Natal Hop! de 23 a 26 de dezembro</p>
+<p>Vem passar o Natal em família.</p>
+</div></footer>
+<script src="site.js"></script>
+<script>
+countdown(document.getElementById('count'));
+loadEvents().then(r=>draftBar(r.draft));
+</script>
+</body></html>

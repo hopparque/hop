@@ -1,0 +1,17 @@
+{
+  "note": "",
+  "sections": [
+    {"title":"Entradas","items":[
+      {"name":"Sopa de legumes","desc":"Quentinha, para começar.","price":""},
+      {"name":"Salgadinhos de Natal","desc":"Para partilhar à mesa.","price":""}]},
+    {"title":"Pratos","items":[
+      {"name":"Bacalhau com todos","desc":"O clássico da consoada.","price":""},
+      {"name":"Peru assado","desc":"Com batata e legumes.","price":""}]},
+    {"title":"Sobremesas","items":[
+      {"name":"Rabanadas","desc":"","price":""},
+      {"name":"Bolo-rei","desc":"","price":""}]},
+    {"title":"Bebidas","items":[
+      {"name":"Chocolate quente","desc":"","price":""},
+      {"name":"Sumo de laranja","desc":"","price":""}]}
+  ]
+}

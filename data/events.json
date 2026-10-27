@@ -1,0 +1,8 @@
+[
+  {"id":"a1","title":"Abertura do Natal Hop!","date":"2026-12-23","time":"17:00","place":"Hop!","category":"Família","desc":"Acendemos as luzes e damos o pontapé de saída a quatro dias de Natal."},
+  {"id":"a2","title":"Oficina de enfeites","date":"2026-12-23","time":"18:30","place":"Hop!","category":"Oficinas","desc":"Constrói e leva para casa o teu enfeite de Natal."},
+  {"id":"a3","title":"Cinema de Natal em família","date":"2026-12-24","time":"16:00","place":"Hop!","category":"Cinema","desc":"Um filme de Natal para ver todos juntos."},
+  {"id":"a4","title":"Véspera de Natal no Hop!","date":"2026-12-24","time":"19:00","place":"Hop!","category":"Família","desc":"Uma noite de Natal para partilhar em família."},
+  {"id":"a5","title":"Manhã de Natal","date":"2026-12-25","time":"11:00","place":"Hop!","category":"Família","desc":"Chocolate quente e brincadeiras na manhã de Natal."},
+  {"id":"a6","title":"Festa de encerramento","date":"2026-12-26","time":"17:00","place":"Hop!","category":"Música","desc":"Despedimo-nos do Natal Hop! em grande."}
+]

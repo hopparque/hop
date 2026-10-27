@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gerir eventos | Natal Hop!</title>
+<link rel="icon" href="assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav><a href="eventos">Ver eventos</a></nav></div></header>
+<main><section class="sec"><div class="wrap">
+<h2>Gerir eventos</h2>
+<div class="card">
+<p style="margin-top:0">As alterações ficam guardadas só neste navegador. Para as publicar, carrega em <b>Descarregar events.json</b>, substitui o ficheiro <code>data/events.json</code> no GitHub e faz commit.</p>
+<div class="actions" style="margin-top:0">
+<button class="btn" id="dl">Descarregar events.json</button>
+<button class="btn ghost" id="imp">Importar events.json</button>
+<button class="btn ghost" id="reset">Descartar alterações</button>
+<input type="file" id="file" accept="application/json" hidden>
+</div>
+<p id="msg" role="status" style="margin-bottom:0"></p>
+</div>
+
+<h3 style="margin-top:2rem" id="ftitle">Novo evento</h3>
+<form id="f" class="card" autocomplete="off">
+<label for="title">Título</label><input id="title" required>
+<div class="row">
+<div><label for="date">Dia</label><select id="date"></select></div>
+<div><label for="time">Hora</label><input id="time" type="time" required></div>
+</div>
+<div class="row">
+<div><label for="place">Local</label><input id="place" value="Hop!"></div>
+<div><label for="cat">Categoria</label><input id="cat" list="cats" placeholder="Família"><datalist id="cats"><option>Família</option><option>Oficinas</option><option>Cinema</option><option>Música</option></datalist></div>
+</div>
+<label for="desc">Descrição</label><textarea id="desc" rows="3"></textarea>
+<div class="actions"><button class="btn alt" type="submit" id="save">Adicionar evento</button><button class="btn ghost" type="button" id="cancel" hidden>Cancelar</button></div>
+</form>
+
+<h3 style="margin-top:2rem">Eventos (<span id="n">0</span>)</h3>
+<div id="list"></div>
+</div></section></main>
+<script src="site.js"></script>
+<script>
+let EV=[],editing=null;
+const $=id=>document.getElementById(id),msg=t=>$('msg').textContent=t;
+$('date').innerHTML=DAYS.map(d=>'<option value="'+d+'">'+fmt(d,{weekday:'long',day:'numeric',month:'long'})+'</option>').join('');
+const persist=()=>{localStorage.setItem(KEY,JSON.stringify(EV));render()};
+function render(){
+  $('n').textContent=EV.length;
+  $('list').innerHTML=EV.length?sortEv(EV).map(e=>'<div class="card" style="margin-bottom:.7rem"><b>'+fmt(e.date,{day:'numeric',month:'short'})+' às '+esc(e.time)+'</b> '+esc(e.title)+(e.category?'<span class="chip">'+esc(e.category)+'</span>':'')+'<div class="actions" style="margin-top:.5rem"><button class="mini" data-e="'+esc(e.id)+'">Editar</button><button class="mini del" data-x="'+esc(e.id)+'">Apagar</button></div></div>').join(''):'<div class="empty">Ainda não há eventos. Usa o formulário para adicionar o primeiro.</div>';
+}
+function reset(){editing=null;$('f').reset();$('place').value='Hop!';$('ftitle').textContent='Novo evento';$('save').textContent='Adicionar evento';$('cancel').hidden=true}
+$('f').onsubmit=e=>{
+  e.preventDefault();
+  const o={id:editing||Date.now().toString(36),title:$('title').value.trim(),date:$('date').value,time:$('time').value,place:$('place').value.trim(),category:$('cat').value.trim(),desc:$('desc').value.trim()};
+  if(editing)EV=EV.map(x=>x.id===editing?o:x);else EV.push(o);
+  persist();msg(editing?'Evento guardado.':'Evento adicionado.');reset();
+};
+$('cancel').onclick=reset;
+$('list').onclick=e=>{
+  const ed=e.target.dataset.e,del=e.target.dataset.x;
+  if(del&&confirm('Apagar este evento?')){EV=EV.filter(x=>x.id!==del);persist();msg('Evento apagado.')}
+  if(ed){const x=EV.find(v=>v.id===ed);editing=ed;
+    $('title').value=x.title;$('date').value=x.date;$('time').value=x.time;$('place').value=x.place||'';$('cat').value=x.category||'';$('desc').value=x.desc||'';
+    $('ftitle').textContent='Editar evento';$('save').textContent='Guardar alterações';$('cancel').hidden=false;$('title').focus()}
+};
+$('dl').onclick=()=>{
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(sortEv(EV),null,2)],{type:'application/json'}));
+  a.download='events.json';a.click();msg('events.json descarregado. Substitui data/events.json no GitHub.');
+};
+$('imp').onclick=()=>$('file').click();
+$('file').onchange=async e=>{
+  try{const d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d))throw 0;EV=d;persist();msg('Ficheiro importado.')}
+  catch(x){msg('Ficheiro inválido. Escolhe um events.json com uma lista de eventos.')}
+  e.target.value='';
+};
+$('reset').onclick=()=>{if(confirm('Descartar as alterações e voltar ao que está publicado?')){localStorage.removeItem(KEY);load()}};
+function load(){loadEvents().then(r=>{EV=r.events;render();if(r.draft)msg('A mostrar alterações ainda não publicadas.')})}
+load();
+</script>
+</body></html>

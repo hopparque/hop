@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ementa | Natal Hop!</title>
+<meta name="description" content="Ementa do Natal Hop!, de 23 a 26 de dezembro.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+<a href="./"><img src="assets/wordmark.png" alt="Hop!"></a>
+<nav aria-label="Principal">
+<a href="./">Início</a>
+<a href="eventos">Eventos</a>
+<a href="ementa" aria-current="page">Ementa</a>
+<a href="musicas">Músicas</a>
+<a href="sobre">Sobre</a>
+<a href="bilheteira" class="cta">Bilheteira</a>
+</nav></div></header>
+<main><section class="sec"><div class="wrap">
+<h2>Ementa</h2>
+<p id="note"></p>
+<div id="menu"></div>
+</div></section></main>
+<footer class="site-foot"><div class="wrap">
+<img src="assets/wordmark.png" alt="Hop!">
+<p>Natal Hop! de 23 a 26 de dezembro</p>
+<p>Vem passar o Natal em família.</p>
+</div></footer>
+<script src="site.js"></script>
+<script>
+fetch('data/ementa.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
+  document.getElementById('note').textContent=d.note||'';
+  document.getElementById('menu').innerHTML=(d.sections||[]).map(s=>'<div class="menu-sec"><h3 class="day-title" style="margin-top:0">'+esc(s.title)+'</h3>'+(s.items||[]).map(i=>'<div class="menu-item"><div><h4>'+esc(i.name)+'</h4>'+(i.desc?'<p>'+esc(i.desc)+'</p>':'')+'</div>'+(i.price?'<div class="price">'+esc(i.price)+'</div>':'')+'</div>').join('')+'</div>').join('')||'<div class="empty">A ementa vai ser anunciada em breve.</div>';
+}).catch(()=>{document.getElementById('menu').innerHTML='<div class="empty">Não foi possível carregar a ementa. Tenta novamente mais tarde.</div>'});
+loadEvents().then(r=>draftBar(r.draft));
+</script>
+</body></html>

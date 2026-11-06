@@ -19,14 +19,15 @@ function draftBar(on){
   b.innerHTML='Estás a ver um rascunho guardado neste navegador. Os visitantes só veem o que estiver em data/events.json. <a href="admin">Abrir gestão</a>';
   document.body.prepend(b);
 }
-function countdown(el){
+function countdown(el,start,end,live){
   if(!el)return;
-  const start=new Date(2026,11,23),end=new Date(2026,11,27);
+  start=start||new Date(2026,11,23);end=end||new Date(2026,11,27);
+  live=live||(()=>'O Natal Hop! está a decorrer. Vem!');
   const tick=()=>{
     const now=new Date();
     if(now>=end){el.innerHTML='<p>Obrigado por passares o Natal no Hop!</p>';return}
-    if(now>=start){el.innerHTML='<p>O Natal Hop! está a decorrer. Vem!</p>';return}
-    let s=Math.floor((start-now)/1000);
+    if(now>=start){el.innerHTML='<p>'+live(now)+'</p>';return}
+    const s=Math.floor((start-now)/1000);
     const v=[[Math.floor(s/86400),'dias'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min'],[s%60,'seg']];
     el.innerHTML=v.map(x=>'<div><b>'+x[0]+'</b>'+x[1]+'</div>').join('');
   };

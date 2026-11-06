@@ -83,3 +83,18 @@ input,select,textarea{width:100%;font:inherit;padding:.55rem .7rem;border:2px so
 .tkbox{position:sticky;top:1rem}
 .tkbox .count div{background:var(--cream)}
 @media(max-width:700px){.tk{grid-template-columns:1fr}.tkbox{position:static}}
+.hero.plain{background:var(--red)}
+.hero .split{align-items:start}
+.hero .split>iframe{border:0}
+.tix{list-style:none;margin:0 0 1rem;padding:0}
+.tix li{display:flex;justify-content:space-between;gap:.8rem;padding:.5rem 0;border-bottom:2px dotted var(--line);font-size:.95rem}
+.tix span{color:#6b4a4f;text-align:right}
+.films{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.2rem;margin-top:1.2rem}
+.film{background:#fff;border:2px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.poster{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.poster.ph{background:var(--red);color:var(--cream);display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font:600 1.8rem/1.1 "Fredoka",sans-serif}
+.fb{padding:1rem 1.1rem 1.2rem}
+.fb h3{font-size:1.3rem;margin:0 0 .3em}
+.fb p{margin:0 0 .7rem;font-size:.95rem;color:#6b4a4f}
+.sess{display:flex;flex-wrap:wrap;gap:.4rem}
+.sess span{background:var(--gold);color:var(--ink);border-radius:99px;padding:.1rem .8rem;font:600 .95rem "Fredoka",sans-serif}

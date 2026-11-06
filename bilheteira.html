@@ -17,6 +17,7 @@
 <nav aria-label="Principal">
 <a href="./">Início</a>
 <a href="eventos">Eventos</a>
+<a href="cinema">Cinema</a>
 <a href="ementa">Ementa</a>
 <a href="musicas">Músicas</a>
 <a href="sobre">Sobre</a>
@@ -36,9 +37,16 @@
 </div>
 <aside class="card tkbox">
 <h3>Bilhetes</h3>
+<p class="meta" style="margin:0 0 .4rem">A venda começa em</p>
 <div id="count" class="count" style="margin-bottom:1rem"></div>
+<ul class="tix">
+<li><b>Passe geral</b><span>30 nov, stock reduzido</span></li>
+<li><b>Jantar de véspera de Natal</b><span>1 dez</span></li>
+<li><b>Almoço de Natal</b><span>1 dez</span></li>
+<li><b>Jantar de Natal</b><span>1 dez</span></li>
+</ul>
 <p class="meta">A venda de bilhetes é feita na 3cket.</p>
-<a class="btn alt" href="https://3cket.com/pt/event/natal" target="_blank" rel="noopener">Comprar na 3cket</a>
+<a class="btn alt" href="https://3cket.com/event/natal" target="_blank" rel="noopener">Comprar na 3cket</a>
 </aside>
 </div>
 </div></section></main>
@@ -49,7 +57,7 @@
 </div></footer>
 <script src="site.js"></script>
 <script>
-countdown(document.getElementById('count'));
+countdown(document.getElementById('count'),new Date(2026,10,30),new Date(2026,11,27),n=>n>=new Date(2026,11,1)?'Bilhetes à venda na 3cket.':'Passe geral à venda. Bilhetes por evento a 1 de dezembro.');
 loadEvents().then(r=>draftBar(r.draft));
 </script>
 </body></html>
